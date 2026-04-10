@@ -1,0 +1,347 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+<!--
+<Layout
+	title="NavBox"
+	description="Row of reactive images for navigation purposes"
+	pubDate={new Date('April 01 2026')}
+></Layout>
+-->
+
+<style>
+    /* ── Gallery Section ── */
+    .gallery-section {
+      margin: 0;
+    }
+
+    .gallery-row {
+      display: flex;
+      background-color: #031625;
+    }
+
+    .gallery-row:hover .gallery-item {
+      width: 25%;
+    }
+
+    /* ── Gallery Item ── */
+    .gallery-item {
+      position: relative;
+      width: 100%;
+      height: 52vh;
+      min-height: 120px;
+      color: #fff;
+      overflow: hidden;
+      transition: width .4s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item .gallery-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: opacity(100%);
+      transition: filter 0.5s ease;
+    }
+
+    /* gradient overlay always present */
+    .gallery-item::before {
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 1 ease, transform 0.5s ease;
+    }
+
+    .gallery-item:hover {
+      width: 50% !important;
+    }
+
+    .gallery-item:hover::before {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-item:hover .gallery-bg {
+      filter: opacity(1);
+    }
+
+    .gallery-item:hover .gallery-title {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-60%);
+    }
+
+    .gallery-item:hover .gallery-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* year badge */
+    .gallery-item .gallery-title {
+      position: absolute;
+      top: 38%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      z-index: 2;
+      border-top: 1px solid rgba(255,255,255,0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.8);
+      padding: 4px 12px;
+      text-align: center;
+      white-space: nowrap;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-item .gallery-title p {
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    /* content panel */
+    .gallery-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 1rem 1.1rem 1.2rem;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.4s ease 0.28s, transform 0.4s ease 0.28s;
+    }
+
+    .gallery-content h1 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #4fa8e8;
+      margin-bottom: 0.4rem;
+    }
+
+    .gallery-content p {
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.82);
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .gallery-content a {
+      color: #4fa8e8;
+      text-decoration: none;
+    }
+
+    .gallery-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* dividers between row groups */
+    .row-divider {
+      height: 6px;
+      background: #040f1a;
+    }
+</style>
+
+
+
+
+
+<style>
+    /* ── HEADER ── */
+    #header .gallery-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: opacity(100%) brightness(0.8);
+      transition: filter 0.6s ease;
+    }
+
+    #header:hover .gallery-bg {
+      filter: opacity(100%) brightness(1);
+    }
+
+    #header .gallery-title {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.7);
+      padding: 6px 24px;
+    }
+
+    #header .gallery-title p {
+      font-family: 'FF-Plastilin', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+    }
+
+    /* ── ABOUT STRIP (under header) ── */
+    .about-strip {
+      background: #07192a;
+      padding: 1.4rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .about-strip h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #4fa8e8;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.25rem;
+    }
+
+    .about-strip p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── TIMELINE SECTIONS ── */
+    .gallery-section {
+      margin: 0;
+    }
+
+    .gallery-row {
+      display: flex;
+      background-color: #031625;
+    }
+
+    .gallery-row:hover .gallery-item {
+      width: 25%;
+    }
+
+    /* ── TIMELINE ITEM ── */
+    .gallery-item {
+      position: relative;
+      width: 100%;
+      height: 52vh;
+      min-height: 120px;
+      color: #fff;
+      overflow: hidden;
+      transition: width .4s ease, scale .5s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item .gallery-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: opacity(100%);
+      transition: filter 0.5s ease;
+    }
+
+    /* gradient overlay always present */
+    .gallery-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(8%);
+      transition: opacity 1 ease, transform 0.5s ease;
+    }
+
+    .gallery-item:hover {
+      width: 50% !important;
+      scale: 1.2;
+      z-index: 999;
+    }
+
+    .gallery-item:hover::before {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-item:hover .gallery-bg {
+      filter: opacity(1);
+    }
+
+    .gallery-item:hover .gallery-title {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-60%);
+    }
+
+    .gallery-item:hover .gallery-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* year badge */
+    .gallery-item .gallery-title {
+      position: absolute;
+      top: 38%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      z-index: 2;
+      border-top: 1px solid rgba(255,255,255,0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.8);
+      padding: 4px 12px;
+      text-align: center;
+      white-space: nowrap;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-item .gallery-title p {
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    /* content panel */
+    .gallery-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 1rem 1.1rem 1.2rem;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.4s ease 0.28s, transform 0.4s ease 0.28s;
+    }
+
+    .gallery-content h1 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #4fa8e8;
+      margin-bottom: 0.4rem;
+    }
+
+    .gallery-content p {
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.82);
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .gallery-content a {
+      color: #4fa8e8;
+      text-decoration: none;
+    }
+
+    .gallery-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* dividers between row groups */
+    .row-divider {
+      height: 6px;
+      background: #040f1a;
+    }
+</style>
+

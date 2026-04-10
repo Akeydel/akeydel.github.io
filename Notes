@@ -1,0 +1,7 @@
+test
+
+Make the hover-nav thingy into a Component 
+use that Component in a Gallery Component
+use that Gallery for an ImageStory layout
+make it use a <li> list for the pictures, that can reference a content/img folder or something
+cross fingers for dynamicly populating that from a google drive folder structure - should be doable!u

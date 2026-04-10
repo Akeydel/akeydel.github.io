@@ -1,0 +1,108 @@
+    /* ── HAMBURGER MENU ── */
+    #hamburger-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 1000;
+      width: 44px;
+      height: 44px;
+      background: rgba(4, 15, 26, 0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    #hamburger-btn:hover {
+      background: rgba(7, 25, 42, 0.95);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    #hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+      transform-origin: center;
+    }
+
+    #hamburger-btn.open span:nth-child(1) {
+      transform-origin: left center;
+      transform: translateY(16px) rotate(300deg);
+    }
+
+    #hamburger-btn.open span:nth-child(2) {
+      transform-origin: right center;
+      transform: translateY(8px) rotate(-300deg);
+    }
+
+    #hamburger-btn.open span:nth-child(3) {
+      transform: translateY(-4px) scaleX(0.5);
+      opacity: 1;
+    }
+
+    #hamburger-nav-dropdown {
+        display: block;
+      position: fixed;
+      top: 68px;
+      right: 16px;
+      z-index: 999;
+      background: rgba(7, 25, 42, 0.97);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 0.5rem 0;
+      min-width: 200px;
+      opacity: 0;
+      transform: translateY(-8px) scale(0.97);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    #hamburger-nav-dropdown.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
+    #hamburger-nav-dropdown a {
+      display: block;
+      padding: 0.65rem 1.2rem;
+      color: rgba(255,255,255,0.78);
+      text-decoration: none;
+      font-family: 'Funnel Display', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.15s ease, background 0.15s ease;
+      border-radius: 6px;
+      margin: 0 0.35rem;
+    }
+
+    #hamburger-nav-dropdown a:hover {
+      color: #fff;
+      background: rgba(79, 168, 232, 0.12);
+    }
+
+    #hamburger-nav-dropdown a .nav-icon {
+      display: inline-block;
+      width: 18px;
+      margin-right: 8px;
+      opacity: 0.6;
+      font-style: normal;
+      font-size: 1em;
+    }
+
+    #hamburger-nav-dropdown .nav-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 0.4rem 0.8rem;
+    }

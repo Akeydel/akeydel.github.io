@@ -1,0 +1,28 @@
+/* ── ABOUT STRIP (under header) ── */ 
+    .about-strip {
+      background: linear-gradient(90deg, #edae4a, var(--accent), var(--bg), var(--bg), var(--bg), var(--bg), var(--bg), var(--bg), var(--bg));
+      padding: 3rem 3rem;
+      text-align: center;
+      border-top: 1px solid #8af3ff;
+    }
+    
+    .about-strip h1 {
+      font-family: "FF-Plastilin";
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .about-strip h3 {
+      border-top: 1px solid var(--accent);
+      color: #4fa8e8;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .about-strip p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .about-strip p b {
+      font-size: 1.6rem;
+      /* fancy effect defined in fancy.css */
+    }

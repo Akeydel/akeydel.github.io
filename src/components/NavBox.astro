@@ -1,0 +1,18 @@
+---
+import BaseHead from '../components/NavGallery.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const { title = "[title]", header="", description="" , link="/", img="https://adventure.com/wp-content/uploads/2018/06/Van-life-van-in-the-USA-Photo-credit-tyler-lillico-443139-unsplash-1920x1080.jpg" } = Astro.props;
+
+const img_url=`background-image: url('${img}');`
+---
+      <div class="gallery-item">
+      <div class="gallery-bg" style={img_url}></div>
+      <div class="gallery-title"><p>{title}</p></div>
+      <div class="gallery-content">
+        <a href={link}>
+        <h1>{header}</h1>
+        </a>
+        <p>{description}</p>
+      </div>
+      </div>

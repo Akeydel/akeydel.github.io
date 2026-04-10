@@ -1,0 +1,83 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import NavBox from '../components/NavBox.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Layout from '../layouts/CustomPage.astro';
+---
+<!--
+<Layout
+	title="Gallery"
+	description="Collection of Photos!"
+	pubDate={new Date('April 06 2026')}
+></Layout>
+-->
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+  <Header />
+
+  <!-- About strip -->
+  <div class='about-strip'>
+    <h1>Anthony  Keydel</h1><br>
+  </div>
+  
+  <div class='about-strip'>
+    <p>I'm a software engineer by trade, and an Adventurer always.<br>
+      Currently traveling: <b>Aotearoa</b> (New Zealand)
+    </p>
+    <hr>
+  </div>
+  <div class="row-divider"></div>
+  <div class="row-divider"></div>
+  
+  <!-- ROW 1 — 4 items -->
+  <section class="gallery-section">
+    <div class="gallery-row">
+      <NavBox title="2", link="/", img="https://i.ibb.co/ksKg5DLr/Finguns.png" />
+      <NavBox title="3", link="/", img="https://i.ibb.co/ksKg5DLr/Finguns.png" />
+      <NavBox title="NAV TITLE" header="Head" description="Some words go here" link="/" />
+    </div>  
+      <br><br>
+  <div class="gallery-row">
+      <div class="gallery-item">
+        <div class="gallery-bg" style="background-image: url('https://adventure.com/wp-content/uploads/2018/06/Van-life-van-in-the-USA-Photo-credit-tyler-lillico-443139-unsplash-1920x1080.jpg');"></div>
+        <div class="gallery-title"><p>Anthony</p></div>
+        <div class="gallery-content">
+          <h1>Title Words and Font</h1>
+          <p>Suspendisse potenti. Sed sollicitudin eros lorem, eget accumsan risus dictum id. Maecenas dignissim ipsum vel mi rutrum egestas.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-bg" style="background-image: url('https://as1.ftcdn.net/v2/jpg/00/71/62/94/1000_F_71629481_zWelwvBOH57X6mmwJsvkpaN2MIOSyi9o.jpg');"></div>
+        <div class="gallery-title"><p>Flying 🪂</p></div>
+        <div class="gallery-content">
+          <h1>Phasellus Mauris Elit</h1>
+          <p>Mauris cursus magna at libero lobortis tempor. Aliquam interdum vulputate neque sit amet varius. Maecenas ac pulvinar nisi.</p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-bg" style="background-image: url('https://i.ibb.co/ksKg5DLr/Finguns.png');"></div>
+        <div class="gallery-title"><p>SomethingElse</p></div>
+        <div class="gallery-content">
+          <h1>I Swear Im Not Boring</h1>
+          <p>Idk, maybe Stories or Latest or Timeline <a href="#">Link?</a></p>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="gallery-bg" style="background-image: url('https://i.ibb.co/ksKg5DLr/Finguns.png');"></div>
+        <div class="gallery-title"><p>TEMPLATE</p></div>
+        <div class="gallery-content">
+          <h1>Title</h1>
+          <p><a href="#">Link?</a></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<Footer />

@@ -1,0 +1,130 @@
+    /* ── GALLERY BOX ── */
+
+    /* ── Gallery SECTIONS ── */
+    .gallery-section {
+      margin: 0;
+    }
+    .gallery-row {
+      display: flex;
+      background-color: var(--bg);
+    }
+    .gallery-row:hover .gallery-item {
+      width: 25%;
+    }
+
+    /* ── GALLERY ITEM ── */
+    .gallery-item {
+      position: relative;
+      width: 100%;
+      height: 52vh;
+      margin: 0px 2px 2px 0px;
+      min-height: 120px;
+      color: #fff;
+      overflow: hidden;
+      transition: width .45s ease .1s;
+      cursor: pointer;
+    }
+
+    .gallery-item .gallery-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: opacity(65%);
+      transition: filter 0.2s ease;
+    }
+
+    /* Gallery item and title*/
+    .gallery-item::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.85) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: opacity .3s ease, transform 0.4s ease .3s, filter .2s ease;
+    }
+    .gallery-item:hover {
+      width: 50% !important;
+      z-index: 999;
+    }
+    .gallery-item:hover .gallery-bg {
+      filter: opacity(1);
+    }
+    .gallery-item:hover::before {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .gallery-item:hover .gallery-title {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-70%);
+    }
+    .gallery-item:hover .gallery-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-item .gallery-title {
+      position: absolute;
+      top: 38%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      z-index: 2;
+      border-top: 1px solid rgba(255,255,255,0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.8);
+      padding: 4px 12px;
+      text-align: center;
+      white-space: nowrap;
+      transition: opacity 0.3s ease, transform 1s ease .1s;
+    }
+
+    .gallery-item .gallery-title p {
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+
+    /* Gallery content panel */
+    .gallery-content {
+      position: absolute;
+      top: 66%;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 1rem 1.1rem 1.2rem;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.3s;
+    }
+    .gallery-content h1 {
+      font-size: 1.15rem;
+      font-family: "FF-Plastilin";
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.085em;
+      color: #4fa8e8;
+      margin-bottom: 0.4rem;
+    }
+    .gallery-content p {
+      font-size: 0.8rem;
+      line-height: 1.45;
+      color: rgba(255,255,255,0.82);
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .gallery-content a {
+      color: #39c9f4ff;
+      text-decoration: none;
+    }
+    .gallery-content a:hover {
+      text-decoration: underline;
+    }
+
+    /* dividers between row groups */
+    .row-divider {
+      height: 6px;
+      background: var(--bg);
+    }
